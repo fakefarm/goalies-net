@@ -30,4 +30,39 @@ describe GoalsController do
       expect(body["name"]).to eq 'swim 500 miles'
     end
   end
+
+  describe 'POST /goals' do
+    it 'creates a goal' do
+      goal_params = {
+        'goal' => {
+          name: 'learn TDD',
+          circle: 'responsibility'
+        }
+      }
+
+      # is this necessary? Tests pass...
+      # request_headers = {
+      #   "Accept" => "application/json",
+      #   "Content-Type" => "application/json"
+      # }
+
+      post :create, goal_params #, request_headers
+      expect(response.status).to eq 201
+    end
+
+    it 'returns error on bad request' do
+      goal_params = {
+        'goal' => {
+          name: 'learn TDD'        }
+      }
+
+      request_headers = {
+        "Accept" => "application/json",
+        "Content-Type" => "application/json"
+      }
+
+      post :create, goal_params, request_headers
+      expect(response.status).to eq 422
+    end
+  end
 end

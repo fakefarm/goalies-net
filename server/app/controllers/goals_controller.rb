@@ -12,6 +12,16 @@ class GoalsController < ApplicationController
     render json: Goal.where(id: params[:id])
   end
 
+  def create
+    goal = Goal.new(goal_params)
+
+    if goal.save
+      render text: 'saved', status: 201
+    else
+      render text: 'error', status: 422
+    end
+  end
+
 private
   def goal_params
     params.require(:goal).permit(:name, :circle, :category)
