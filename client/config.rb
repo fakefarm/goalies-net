@@ -4,6 +4,8 @@
 
 # Time.zone = "UTC"
 
+sprockets.append_path File.join root, 'bower_components'
+
 helpers do
   def new_post
     if blog.articles.first.title.downcase == page_classes.split(' ')[0].downcase
