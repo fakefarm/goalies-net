@@ -6,6 +6,8 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+AppConfig = YAML.load(File.read(File.expand_path('../app_config.yml', __FILE__)))
+
 module RailsApp
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
