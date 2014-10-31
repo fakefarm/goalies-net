@@ -8,7 +8,8 @@ class ApplicationController < ActionController::Base
   before_filter :cors_preflight
 
   def set_cors_headers
-    headers['Access-Control-Allow-Origin']  = AppConfig['defaults']['client']['origin']
+    env = ENV['RAILS_ENV']
+    headers['Access-Control-Allow-Origin']  = AppConfig[env]['client']['origin']
     headers['Access-Control-Allow-Methods'] = 'GET, POST, PUT, DELETE, OPTIONS'
     headers['Access-Control-Allow-Headers'] = '*'
     headers['Access-Control-Max-Age'] = '3628800'
