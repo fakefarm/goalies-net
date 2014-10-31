@@ -1,10 +1,10 @@
 development:
   client:
-    origin: http://localhost:4567
+    origin: http://woodall.github.io
 
 test:
   client:
-    origin: http://localhost:4567
+    origin: http://woodall.github.io
 
 production:
   client:

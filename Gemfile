@@ -8,6 +8,7 @@ gem 'uglifier',             '>= 1.3.0'
 gem 'jbuilder',             '~> 2.0'
 gem 'pry-rails', :group => :development
 
+
 group :development, :test do
   gem 'sqlite3'
   gem 'rspec-rails',        '~> 3.1.0 '
