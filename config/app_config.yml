@@ -1,12 +1,11 @@
-defaults: &defaults
+development:
   client:
     origin: http://localhost:4567
 
-development:
-  <<: *defaults
-
 test:
-  <<: *defaults
+  client:
+    origin: http://localhost:4567
 
 production:
-  <<: *defaults
+  client:
+    origin: http://woodall.github.io
