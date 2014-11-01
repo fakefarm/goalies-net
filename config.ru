@@ -4,7 +4,7 @@ run Rails.application
 
 use Rack::Cors do
   allow do
-    origins 'localhost:3000', '127.0.0.1:3000', 'localhost:4567'
+    origins 'localhost:4567', 'woodall.github.io'
 
     resource '/file/list_all/', :headers => 'x-domain-token'
     resource '/file/at/*',
