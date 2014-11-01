@@ -1,13 +1,13 @@
 source 'https://rubygems.org'
 
 gem 'rails',                '4.1.6'
+gem 'rack-cors', :require => 'rack/cors'
 
 gem 'pg', group: :production
 gem 'rails_12factor', group: :production
 gem 'uglifier',             '>= 1.3.0'
 gem 'jbuilder',             '~> 2.0'
 gem 'pry-rails', :group => :development
-
 
 group :development, :test do
   gem 'sqlite3'
