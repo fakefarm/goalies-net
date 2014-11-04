@@ -1,3 +1,3 @@
 Rails.application.routes.draw do
-  resources :goals, only: [:show, :index, :create]
+  resources :goals, only: [:show, :index, :create, :update]
 end

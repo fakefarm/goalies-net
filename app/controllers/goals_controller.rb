@@ -21,6 +21,17 @@ class GoalsController < ApplicationController
     end
   end
 
+  def update
+     goal = Goal.where(id: params[:id]).first
+     name = JSON.parse(params.first[0])['name']
+     goal.name = name
+     if goal.save
+      render text: 'saved', status: 201
+    else
+      render text: 'error', status: 422
+    end
+  end
+
 private
   def goal_params
     params.require(:goal).permit(:name, :circle, :category)

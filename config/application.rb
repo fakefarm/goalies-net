@@ -20,10 +20,11 @@ module RailsApp
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
 
+    # Access-Control-Allow-Origin
     config.middleware.insert_before "ActionDispatch::Static", "Rack::Cors" do
       allow do
         origins '*'
-        resource '*', :headers => :any, :methods => [:get, :post, :options]
+        resource '*', :headers => :any, :methods => [:get, :post, :options, :put]
       end
     end
 
