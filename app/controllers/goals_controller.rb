@@ -32,6 +32,15 @@ class GoalsController < ApplicationController
     end
   end
 
+  def destroy
+    goal = Goal.where(id: params[:id]).first
+    if goal.delete
+      render text: 'saved', status: 201
+    else
+      render text: 'error', status: 422
+    end
+  end
+
 private
   def goal_params
     params.require(:goal).permit(:name, :circle, :category)
