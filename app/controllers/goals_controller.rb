@@ -23,7 +23,7 @@ class GoalsController < ApplicationController
 
   def update
      goal = Goal.where(id: params[:id]).first
-     name = JSON.parse(params.first[0])['name']
+     name = params['goal']['name']
      goal.name = name
      if goal.save
       render text: 'saved', status: 201
