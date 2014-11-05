@@ -23,7 +23,7 @@ module RailsApp
     # Access-Control-Allow-Origin
     config.middleware.insert_before "ActionDispatch::Static", "Rack::Cors" do
       allow do
-        origins '*'
+        origins 'http://localhost:4567', 'http://woodall.github.io/'
         resource '*', :headers => :any, :methods => [:get, :post, :options, :put, :delete]
       end
     end
