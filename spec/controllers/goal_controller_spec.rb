@@ -3,8 +3,8 @@ require 'rails_helper'
 describe GoalsController do
   describe 'GET /goals' do
     it 'returns all goals' do
-      FactoryGirl.create :goal, name: 'learn to code', circle: 'responsibility'
-      FactoryGirl.create :goal, name: 'date Danae.', circle: 'relational'
+      FactoryGirl.create :goal, name: 'learn to code', circle: 'responsibility', quarter: '1'
+      FactoryGirl.create :goal, name: 'date Danae.', circle: 'relational', quarter: '1'
 
       # FIX
       # get '/goals', {}, { "Accept" => "application/json" }
@@ -20,7 +20,7 @@ describe GoalsController do
 
   describe 'GET /goals/:id' do
     it 'returns a request goal' do
-      g = FactoryGirl.create :goal, name: 'swim 500 miles', circle: 'personal'
+      g = FactoryGirl.create :goal, name: 'swim 500 miles', circle: 'personal', quarter: '2'
 
       # FIX
       # get "show/#{g.id}", {}, { "Accept" => "application/json" }
@@ -36,7 +36,8 @@ describe GoalsController do
       goal_params = {
         'goal' => {
           name: 'learn TDD',
-          circle: 'responsibility'
+          circle: 'responsibility',
+          quarter: '1'
         }
       }
 
@@ -53,15 +54,12 @@ describe GoalsController do
     it 'returns error on bad request' do
       goal_params = {
         'goal' => {
-          name: 'learn TDD'        }
+          name: 'learn TDD',
+          circle: 'personal'
+        }
       }
 
-      request_headers = {
-        "Accept" => "application/json",
-        "Content-Type" => "application/json"
-      }
-
-      post :create, goal_params, request_headers
+      post :create, goal_params
       expect(response.status).to eq 422
     end
   end
