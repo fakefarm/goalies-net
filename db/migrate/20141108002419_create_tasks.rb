@@ -8,6 +8,7 @@ class CreateTasks < ActiveRecord::Migration
       t.integer  :user_id,   default: 1 # TODO - remove
       t.integer  :goal_id,   default: 1
       t.index    :goal_id
+      t.index    :user_id
 
       t.timestamps
     end

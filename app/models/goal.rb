@@ -4,6 +4,7 @@ class Goal < ActiveRecord::Base
   validates :quarter, presence: true
 
   has_many :tasks
+  has_many :logs
 
   def self.find(term)
     where("name LIKE ?", "%#{term}%").order(:name)
