@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141107020405) do
+ActiveRecord::Schema.define(version: 20141108002419) do
 
   create_table "goals", force: true do |t|
     t.string   "name"
@@ -20,6 +20,19 @@ ActiveRecord::Schema.define(version: 20141107020405) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "quarter"
+    t.boolean  "status",     default: false
+    t.boolean  "deleted",    default: false
+  end
+
+  create_table "tasks", force: true do |t|
+    t.string   "name"
+    t.boolean  "completed"
+    t.date     "snooze"
+    t.integer  "user_id"
+    t.integer  "goal_id"
+    t.boolean  "deleted"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end
