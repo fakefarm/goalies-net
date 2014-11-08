@@ -20,19 +20,22 @@ ActiveRecord::Schema.define(version: 20141108002419) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "quarter"
-    t.boolean  "status",     default: false
+    t.boolean  "completed",  default: false
+    t.integer  "user_id"
     t.boolean  "deleted",    default: false
   end
 
   create_table "tasks", force: true do |t|
-    t.string   "name"
-    t.boolean  "completed"
     t.date     "snooze"
+    t.string   "name"
+    t.boolean  "completed",  default: false
+    t.boolean  "deleted",    default: false
     t.integer  "user_id"
     t.integer  "goal_id"
-    t.boolean  "deleted"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "tasks", ["goal_id"], name: "index_tasks_on_goal_id"
 
 end
