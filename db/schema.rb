@@ -20,9 +20,10 @@ ActiveRecord::Schema.define(version: 20141108002419) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "quarter"
-    t.boolean  "completed",  default: false
     t.integer  "user_id"
-    t.boolean  "deleted",    default: false
+    t.boolean  "completed",      default: false
+    t.boolean  "deleted",        default: false
+    t.date     "completed_date"
   end
 
   create_table "tasks", force: true do |t|
@@ -30,8 +31,8 @@ ActiveRecord::Schema.define(version: 20141108002419) do
     t.string   "name"
     t.boolean  "completed",  default: false
     t.boolean  "deleted",    default: false
-    t.integer  "user_id"
-    t.integer  "goal_id"
+    t.integer  "user_id",    default: 1
+    t.integer  "goal_id",    default: 1
     t.datetime "created_at"
     t.datetime "updated_at"
   end
