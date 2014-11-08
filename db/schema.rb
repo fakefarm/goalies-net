@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 20141108002419) do
   end
 
   create_table "tasks", force: true do |t|
-    t.date     "snooze"
+    t.datetime "snooze"
     t.string   "name"
     t.boolean  "completed",  default: false
     t.boolean  "deleted",    default: false
