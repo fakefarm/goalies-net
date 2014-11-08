@@ -21,9 +21,14 @@ class TasksController < ApplicationController
   end
 
   def update
-     task = Task.where(id: params[:id]).first
-     name = params['task']['name']
-     task.name = name
+    task = Task.where(id: params[:id]).first
+    task.snooze    = params['task']['snooze']
+    task.name      = params['task']['name']
+    task.completed = params['task']['completed']
+    task.deleted   = params['task']['deleted']
+    task.user_id   = params['task']['user_id']
+    task.goal_id   = params['task']['goal_id']
+
     if task.save
       render text: 'saved', status: 201
     else
