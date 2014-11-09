@@ -6,7 +6,7 @@ class CreateTasks < ActiveRecord::Migration
       t.boolean  :completed, default: false
       t.boolean  :deleted,   default: false
       t.integer  :user_id,   default: 1 # TODO - remove
-      t.integer  :goal_id,   default: 1
+      t.integer  :goal_id
       t.index    :goal_id
       t.index    :user_id
 

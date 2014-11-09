@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 20141108173658) do
     t.boolean  "completed",  default: false
     t.boolean  "deleted",    default: false
     t.integer  "user_id",    default: 1
-    t.integer  "goal_id",    default: 1
+    t.integer  "goal_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
