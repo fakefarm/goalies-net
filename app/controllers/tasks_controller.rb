@@ -14,7 +14,7 @@ class TasksController < ApplicationController
     task = Task.new(task_params)
 
     if task.save
-      render text: 'saved', status: 201
+      render json: task
     else
       render text: 'error', status: 422
     end

@@ -15,7 +15,7 @@ class GoalsController < ApplicationController
     goal = Goal.new(goal_params)
 
     if goal.save
-      render text: 'saved', status: 201
+      render json: goal
     else
       render text: 'error', status: 422
     end
